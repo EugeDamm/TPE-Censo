@@ -90,7 +90,7 @@ addProvinciaRec(ProvinciaADT primerProvincia, char * nombre, char * departamento
 			return primerProvincia;
 	}
 
-		primerProvincia=addProvinciaRec(primerProvincia->tail, nombre, departamento, estado);
+		primerProvincia->tail=addProvinciaRec(primerProvincia->tail, nombre, departamento, estado);
 		return primerProvincia;
 	
 }
@@ -120,7 +120,7 @@ addDepartamento(DepartamentoADT primerDepartamento,char * departamento, int esta
 		}
 		return primerDepartamento;
 	}
-	primerDepartamento=addDepartamento(primerDepartamento->tail,departamento,estado);
+	primerDepartamento->tail=addDepartamento(primerDepartamento->tail,departamento,estado);
 	return primerDepartamento;
 }
 
