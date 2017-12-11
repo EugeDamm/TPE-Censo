@@ -127,7 +127,12 @@ addDepartamento(DepartamentoADT primerDepartamento,char * departamento, int esta
 float
 Desocupacion(int conempleo, int desempleo){
 	float resp;
+	if(conempleo+desempleo==0)
+		return 0;
 	resp=(desempleo/(((float)conempleo)+desempleo));
+	float aux=resp*1000;
+	if(aux%10 >=5)
+		resp+=0.01;
 	return resp;
 }
 
@@ -183,8 +188,9 @@ void
 CargarDepartamento(FILE * Departamentocvs, PaisADT Pais){
 	float desocupacion;
 	ProvinciaADT Prov=Pais->primerProvincia;
-	DepartamentoADT Dept=Prov->primerDepartamento;
+	DepartamentoADT Dept;
 	while(Prov!=NULL){
+		Dept=Prov->primerDepartamento;
 		while(Dept!=NULL){
 			desocupacion=Desocupacion(Dept->conempleo,Dept->desempleo);
 			fprintf(Departamentocvs, "%s, %s, %d, %.2f\n",Prov->nombre,Dept->nombre,Dept->cantPersonas,desocupacion );
