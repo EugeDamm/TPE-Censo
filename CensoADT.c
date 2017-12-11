@@ -130,9 +130,6 @@ Desocupacion(int conempleo, int desempleo){
 	if(conempleo+desempleo==0)
 		return 0;
 	resp=(desempleo/(((float)conempleo)+desempleo));
-	float aux=resp*1000;
-	if(aux%10 >=5)
-		resp+=0.01;
 	return resp;
 }
 
