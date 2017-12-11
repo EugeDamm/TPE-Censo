@@ -27,6 +27,7 @@ main(void){
 	fclose(archEntrada);
 
 	FILE * Pais=fopen("Pais.csv","w+");
+	CargarPais(Pais,Argentina);
 	fclose(Pais);
 
 	FILE * Provincia=fopen("Provincia.csv","w+");
@@ -36,7 +37,8 @@ main(void){
 	FILE * Departamento=fopen("Departamento.csv","w+");
 	CargarDepartamento(Departamento, Argentina);
 	fclose(Departamento);
-
+	
+	FreePais(Argentina);
 
 	return 0;
 }
